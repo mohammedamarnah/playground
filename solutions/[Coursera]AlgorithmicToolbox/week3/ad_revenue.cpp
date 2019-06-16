@@ -12,7 +12,7 @@ typedef unsigned long long ull;
 int main() {
     int n;
     cin >> n;
-    vector<int> a(n), b(n);
+    vector<ll> a(n), b(n);
     for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
@@ -21,7 +21,7 @@ int main() {
     }
     sort(a.rbegin(), a.rend());
     sort(b.rbegin(), b.rend());
-    int sum = 0;
+    ll sum = 0;
     for (int i = 0; i < n; i++) {
         sum += (a[i] * b[i]);
     }
