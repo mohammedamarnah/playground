@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool compare(const pair<int, int> a, pair<int, int> b) {
+bool compare(const pair<double, double> a, pair<double, double> b) {
   return (a.first/a.second) > (b.first/b.second);
 }
 
-double max_loot(vector<pair<int, int> > v, int total) {
+double max_loot(vector<pair<double, double> > v, double total) {
   sort(v.begin(), v.end(), compare);
   double w = 0.0;
   double ans = 0.0;
@@ -14,8 +14,8 @@ double max_loot(vector<pair<int, int> > v, int total) {
       w += v[i].second;
       ans += v[i].first;
     } else if (w < total) {
+      ans += (v[i].first / v[i].second) * (total - w);
       w = total;
-      ans += v[i].first / (v[i].second / w);
     }
   }
 
@@ -23,13 +23,13 @@ double max_loot(vector<pair<int, int> > v, int total) {
 }
 
 int main() {
-  int n, w;
-  scanf("%d%d", &n, &w);
+  double n, w;
+  cin >> n >> w;
 
-  vector<pair<int, int> > v(n);
+  vector<pair<double, double> > v(n);
   for (int i = 0; i < n; i++) {
-    int a, b;
-    scanf("%d%d", &a, &b);
+    double a, b;
+    cin >> a >> b;
     v[i].first = a;
     v[i].second = b;
   }
